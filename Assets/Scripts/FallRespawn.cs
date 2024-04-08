@@ -8,9 +8,9 @@ public class FallRespawn : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (transform.position.y < 25.06)
+        if (transform.position.y < 1.47f)
         {
-            transform.position = new Vector3(517.6f, 28.76f, 359.9f);
+            transform.position = new Vector3(-4.64f, 4.53f, 2.7f);
         }
     }
 
