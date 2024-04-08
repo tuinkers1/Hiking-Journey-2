@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 107acc11e4a900e4a89be67ea6741ba5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ObjectToPlace: {instanceID: 0}
+  - tempObject: {instanceID: 0}
+  - campfire: {fileID: 919132149155446097, guid: 7dd8d2f166141e84fa77fe12be514bdb, type: 3}
+  - tempCampfire: {fileID: 919132149155446097, guid: 7dd8d2f166141e84fa77fe12be514bdb, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
