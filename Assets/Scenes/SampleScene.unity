@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &55137656 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: b694b8ec5c41f6247843a2b67222fda6, type: 3}
+  m_PrefabInstance: {fileID: 1137208332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &193771236
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,8 +855,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a3d5c529fc343c43b4719b746a71d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FLashLightOnPlayer: {fileID: 0}
-  PickUpText: {fileID: 0}
+  FLashLightOnPlayer: {fileID: 55137656}
+  PickUpText: {fileID: 308914402}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,11 +1206,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 669c3787b1a895a4291de70f0fec6f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 0}
+  playerCamera: {fileID: 963194227}
   walkSpeed: 6
-  runSpeed: 12
-  jumpPower: 5
-  gravity: 50
+  runSpeed: 9
+  jumpPower: 7
+  gravity: 25
   lookSpeed: 2
   lookXLimit: 45
   canMove: 1
@@ -1309,7 +1314,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1511433201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdc14a49856e2f04a83fa920beaa06a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 77930cbdb6e45bd47a1fc094af4eeb91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1511433204
