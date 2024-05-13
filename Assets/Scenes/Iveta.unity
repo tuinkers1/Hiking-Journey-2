@@ -1021,6 +1021,8 @@ MonoBehaviour:
   pages:
   - {fileID: 422021827}
   - {fileID: 1605190124}
+  backButton: {fileID: 1046627383}
+  forwardButton: {fileID: 825980561}
 --- !u!1 &1942156757
 GameObject:
   m_ObjectHideFlags: 0
