@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3215976250330388331}
   - component: {fileID: 812202735735268257}
   m_Layer: 0
-  m_Name: butterflyNet_animation
+  m_Name: butterflyNet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
