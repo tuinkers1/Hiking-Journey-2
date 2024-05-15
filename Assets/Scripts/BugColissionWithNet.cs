@@ -6,7 +6,7 @@ public class BugColissionWithNet : MonoBehaviour
 {
    private void OnTriggerEnter(Collider other)
         {
-            print("Trigger");
+            print("Bug caught with the net");
             Destroy(gameObject);
         }
     
