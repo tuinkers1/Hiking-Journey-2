@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BookManager : MonoBehaviour
 {
-    public GameObject bookUI; // Reference to the UI canvas representing the book
+    public GameObject bookUI; 
     private bool isBookOpen = false; // Flag to track whether the book is open or closed
-    public GameObject Player; // Reference to the player GameObject
-    private FPSController fpsController; // Reference to the FPSController script attached to the player
+    public GameObject Player; 
+    private FPSController fpsController; 
 
     void Start()
     {
-        // Ensure the book UI is initially disabled
+        
         bookUI.SetActive(false);
 
-        // Get the FPSController script attached to the player GameObject
+        
         fpsController = Player.GetComponent<FPSController>();
     }
 
@@ -36,7 +37,7 @@ public class BookManager : MonoBehaviour
         // Toggle cursor visibility
         Cursor.visible = isBookOpen;
 
-        // Optionally, you can also lock or unlock the cursor
+        
         if (isBookOpen)
         {
             Cursor.lockState = CursorLockMode.None; // Unlock cursor when book is open
@@ -51,3 +52,5 @@ public class BookManager : MonoBehaviour
         }
     }
 }
+
+
