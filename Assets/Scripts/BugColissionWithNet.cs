@@ -4,10 +4,27 @@ using UnityEngine;
 
 public class BugColissionWithNet : MonoBehaviour
 {
-   private void OnTriggerEnter(Collider other)
+    public string bugName; 
+    private BugCollector bugCollector;
+
+    private void Start()
+    {
+        bugCollector = FindObjectOfType<BugCollector>();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Net")) 
         {
             print("Bug caught with the net");
+
+            if (bugCollector != null)
+            {
+                bugCollector.OnCatch(bugName);
+            }
+
             Destroy(gameObject);
         }
-    
+    }
 }
+
