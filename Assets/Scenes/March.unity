@@ -1287,6 +1287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookUI: {fileID: 538053084}
   Player: {fileID: 1123604982}
+  animationRoot: {fileID: 794287281}
 --- !u!4 &961523909
 Transform:
   m_ObjectHideFlags: 0
