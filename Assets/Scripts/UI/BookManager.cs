@@ -38,11 +38,13 @@ public class BookManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;  
             fpsController.enabled = false;
+            
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked; 
             fpsController.enabled = true;
+            
         }
     }
 }
