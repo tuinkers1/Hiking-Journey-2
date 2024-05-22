@@ -209,9 +209,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3729462410226605054}
   - component: {fileID: 8474553921341500559}
-  - component: {fileID: 679293382130682999}
+  - component: {fileID: 6218948511309598071}
   m_Layer: 0
-  m_Name: tree2
+  m_Name: tree2 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,7 +259,7 @@ LODGroup:
     renderers:
     - renderer: {fileID: 8506674866004798760}
   m_Enabled: 1
---- !u!136 &679293382130682999
+--- !u!136 &6218948511309598071
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,10 +269,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3667277
-  m_Height: 5.653543
+  m_Radius: 0.6341113
+  m_Height: 6.7294154
   m_Direction: 1
-  m_Center: {x: 0, y: 2.3267715, z: -0.13327229}
+  m_Center: {x: 0, y: 2.8647077, z: 0.13411129}
 --- !u!1 &4940305222457778644
 GameObject:
   m_ObjectHideFlags: 0
