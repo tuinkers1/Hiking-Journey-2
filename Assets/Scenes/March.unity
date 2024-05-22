@@ -1608,7 +1608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888ba8ebdcb82e1408287e6b200cdd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bugName: DragonFly
+  bugName: Dragonfly
 --- !u!195 &1061568192
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2178,7 +2178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 29b59920ad368694084dd2c5584cb769, type: 3}
       propertyPath: m_Name
-      value: DragonFly
+      value: Dragonfly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29b59920ad368694084dd2c5584cb769, type: 3}
