@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class BugAI : MonoBehaviour
 {
     private NavMeshAgent bugAI;
-    [SerializeField] private Transform[] waypoints;
-    [SerializeField] private int wayPointIndex;
+    public Transform[] waypoints;
+    public int wayPointIndex;
     [SerializeField] private Vector3 Target;
 
     private void Start()
@@ -17,28 +17,25 @@ public class BugAI : MonoBehaviour
     }
     private void Update()
     {
-        //Debug.Log(bugAI.remainingDistance);
+        Debug.Log(bugAI.remainingDistance);
         //Debug.Log(Vector3.Distance(transform.position, Target));
-        if (bugAI.remainingDistance < 1)
+        if (bugAI.remainingDistance < 1 && !bugAI.pathPending)
         {
             IterateWayPointIndex();
-            UpdateDestination();
-            //Debug.Log(bugAI.remainingDistance);
-        
+            UpdateDestination();        
         }
-        
     }
 
     private void UpdateDestination()
     {
-
         Target = waypoints[wayPointIndex].position;
-        bugAI.SetDestination(Target);
+        bugAI.destination = Target;
     }
 
     private void IterateWayPointIndex()
     {
-        wayPointIndex++;
+        wayPointIndex += 1;
+        
         if (wayPointIndex == waypoints.Length)
         {
             wayPointIndex = 0;
