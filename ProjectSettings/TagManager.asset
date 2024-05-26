@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Terrain
+  - Net
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NoCollide
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

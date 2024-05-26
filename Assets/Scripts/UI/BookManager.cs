@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class BookManager : MonoBehaviour
 {
     public GameObject bookUI; 
-    private bool isBookOpen = false; // Flag to track whether the book is open or closed
+    private bool isBookOpen = false; 
     public GameObject Player; 
     private FPSController fpsController; 
 
@@ -14,14 +14,12 @@ public class BookManager : MonoBehaviour
     {
         
         bookUI.SetActive(false);
-
-        
         fpsController = Player.GetComponent<FPSController>();
     }
 
     void Update()
     {
-        // Check for player input to toggle the book
+        
         if (Input.GetKeyDown(KeyCode.E))
         {
             ToggleBook();
@@ -30,24 +28,20 @@ public class BookManager : MonoBehaviour
 
     void ToggleBook()
     {
-        // Toggle the state of the book and update UI accordingly
+        
         isBookOpen = !isBookOpen;
         bookUI.SetActive(isBookOpen);
-
-        // Toggle cursor visibility
         Cursor.visible = isBookOpen;
 
         
         if (isBookOpen)
         {
-            Cursor.lockState = CursorLockMode.None; // Unlock cursor when book is open
-            // Disable the FPSController script
+            Cursor.lockState = CursorLockMode.None;  
             fpsController.enabled = false;
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked; // Lock cursor when book is closed
-            // Enable the FPSController script
+            Cursor.lockState = CursorLockMode.Locked; 
             fpsController.enabled = true;
         }
     }
