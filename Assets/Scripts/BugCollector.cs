@@ -10,9 +10,9 @@ public class BugCollector : MonoBehaviour
 
     private Dictionary<string, Image> bugImages = new Dictionary<string, Image>();
     private Dictionary<string, bool> bugsCaught = new Dictionary<string, bool>();
+    private Dictionary<string, GameObject> bugCaughtMessages = new Dictionary<string, GameObject>();
 
-    public GameObject bugCaughtMessage; 
-    public GameObject duplicateBugMessage; 
+    public GameObject duplicateBugMessage;
 
     void Start()
     {
@@ -24,17 +24,26 @@ public class BugCollector : MonoBehaviour
             if (bugImage != null)
             {
                 bugImages[bug.bugName] = bugImage;
-                bugImage.sprite = bug.coloredSprite; 
-                bugImage.enabled = false; 
+                bugImage.sprite = bug.coloredSprite;
+                bugImage.enabled = false;
             }
             else
             {
                 Debug.LogWarning("UI Image for bug " + bug.bugName + " not found.");
             }
+
+            GameObject bugCaughtMessage = GameObject.Find(bug.bugName + "CaughtMessage");
+            if (bugCaughtMessage != null)
+            {
+                bugCaughtMessages[bug.bugName] = bugCaughtMessage;
+                bugCaughtMessage.SetActive(false);
+            }
+            else
+            {
+                Debug.LogWarning("Caught message for bug " + bug.bugName + " not found.");
+            }
         }
 
-        // Make sure the messages are initially inactive
-        bugCaughtMessage.SetActive(false);
         duplicateBugMessage.SetActive(false);
     }
 
@@ -53,7 +62,14 @@ public class BugCollector : MonoBehaviour
                 {
                     bugImages[bugName].enabled = true;
                 }
-                StartCoroutine(ShowMessage(bugCaughtMessage));
+                if (bugCaughtMessages.ContainsKey(bugName))
+                {
+                    StartCoroutine(ShowMessage(bugCaughtMessages[bugName]));
+                }
+                else
+                {
+                    Debug.LogWarning("Caught message for bug " + bugName + " not found.");
+                }
             }
         }
         else
@@ -65,7 +81,7 @@ public class BugCollector : MonoBehaviour
     private IEnumerator ShowMessage(GameObject messageObject)
     {
         messageObject.SetActive(true);
-        yield return new WaitForSeconds(2); 
+        yield return new WaitForSeconds(2);
         messageObject.SetActive(false);
     }
 
