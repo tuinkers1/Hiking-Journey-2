@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Book : MonoBehaviour
 {
-  [SerializeField] float pageSpeed = 0.5f;
-  [SerializeField] List<Transform> pages;
+    [SerializeField] float pageSpeed = 0.5f;
+    [SerializeField] List<Transform> pages;
     int index = -1;
     bool rotate = false;
     [SerializeField] GameObject backButton;
     [SerializeField] GameObject forwardButton;
+    [SerializeField] GameObject mainPage; 
 
     private void Start()
     {
@@ -21,13 +22,11 @@ public class Book : MonoBehaviour
         if (rotate == true) { return; }
         index++;
         float angle = 180; //to rotate page forward, rotate 180 around y axis
-     
+
         ForwardButtonActions();
         pages[index].SetAsLastSibling();
         StartCoroutine(Rotate(angle, true));
     }
-
-   
 
     public void ForwardButtonActions()
     {
@@ -39,11 +38,14 @@ public class Book : MonoBehaviour
         {
             forwardButton.SetActive(false); //if the page is last, then we turn off the forward button
         }
+
+       
+        mainPage.SetActive(false);
     }
 
     public void RotateBack()
     {
-        if(rotate == true) { return; }
+        if (rotate == true) { return; }
         float angle = 0; //to rotate page back, rotate 0 around y axis
         pages[index].SetAsLastSibling();
         BackButtonActions();
@@ -60,12 +62,17 @@ public class Book : MonoBehaviour
         {
             backButton.SetActive(false); //if the page is first then we turn off the back button
         }
+
+        
+        mainPage.SetActive(true);
+
+        mainPage.transform.SetAsLastSibling();
     }
 
     IEnumerator Rotate(float angle, bool forward)
     {
         float value = 0f;
-        while (true) 
+        while (true)
         {
             rotate = true;
             Quaternion targetRotation = Quaternion.Euler(0, angle, 0);

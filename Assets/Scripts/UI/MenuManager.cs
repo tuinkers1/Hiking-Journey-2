@@ -1,11 +1,9 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
     public GameObject menuCanvas;
-    public GameObject player; // Assign the player GameObject in the inspector
+    public GameObject player;
     private FPSController fpsController;
 
     void Start()
@@ -31,7 +29,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    void ToggleMenu()
+    public void ToggleMenu()
     {
         bool isActive = menuCanvas.activeSelf;
         menuCanvas.SetActive(!isActive);
@@ -39,5 +37,10 @@ public class MenuManager : MonoBehaviour
         Cursor.lockState = isActive ? CursorLockMode.Locked : CursorLockMode.None;
         Time.timeScale = isActive ? 1f : 0f;
         fpsController.enabled = isActive;
+    }
+
+    public bool IsMenuActive() // Add this method
+    {
+        return menuCanvas.activeSelf;
     }
 }
