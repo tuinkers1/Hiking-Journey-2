@@ -19,5 +19,6 @@ public class AltBugAI : MonoBehaviour
     {   
         float height = Mathf.Lerp(transform.position.y, bugAi.waypoints[bugAi.wayPointIndex].position.y, Time.deltaTime);
         transform.position = new Vector3(roomba.transform.position.x, height, roomba.transform.position.z);
+        transform.rotation = roomba.transform.rotation;
     }
 }
