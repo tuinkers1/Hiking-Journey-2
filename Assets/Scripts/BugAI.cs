@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class BugAI : MonoBehaviour
 {
     private NavMeshAgent bugAI;
-    [SerializeField] private Transform[] waypoints;
-    [SerializeField] private int wayPointIndex;
+    public Transform[] waypoints;
+    public Transform[] fleePoints;
+    private int fleepoint;
+    public int wayPointIndex;
     [SerializeField] private Vector3 Target;
+    [SerializeField] private Vector3 fleeTarget;
 
     private void Start()
     {
@@ -17,31 +21,42 @@ public class BugAI : MonoBehaviour
     }
     private void Update()
     {
-        //Debug.Log(bugAI.remainingDistance);
+        Debug.Log(bugAI.remainingDistance);
         //Debug.Log(Vector3.Distance(transform.position, Target));
-        if (bugAI.remainingDistance < 1)
+        if (bugAI.remainingDistance < 1 && !bugAI.pathPending)
         {
             IterateWayPointIndex();
-            UpdateDestination();
-            //Debug.Log(bugAI.remainingDistance);
-        
+            UpdateDestination();        
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            FleeFromPlayer();
         }
         
     }
+    
 
     private void UpdateDestination()
     {
-
         Target = waypoints[wayPointIndex].position;
-        bugAI.SetDestination(Target);
+        bugAI.destination = Target;
     }
 
     private void IterateWayPointIndex()
     {
-        wayPointIndex++;
+        wayPointIndex += 1;
+        
         if (wayPointIndex == waypoints.Length)
         {
             wayPointIndex = 0;
         }
+    }
+
+    private void FleeFromPlayer()
+    {
+        fleepoint = Random.Range(0, fleePoints.Length);
+        fleeTarget = fleePoints[fleepoint].position;
+        bugAI.SetDestination(fleeTarget);
+        
     }
 }

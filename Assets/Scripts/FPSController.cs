@@ -27,6 +27,7 @@ public class FPSController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Physics.IgnoreLayerCollision(3, 6);
     }
 
     void Update ()
