@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class BugAI : MonoBehaviour
 {
     private NavMeshAgent bugAI;
     public Transform[] waypoints;
+    public Transform[] fleePoints;
+    private int fleepoint;
     public int wayPointIndex;
     [SerializeField] private Vector3 Target;
+    [SerializeField] private Vector3 fleeTarget;
 
     private void Start()
     {
@@ -24,7 +28,13 @@ public class BugAI : MonoBehaviour
             IterateWayPointIndex();
             UpdateDestination();        
         }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            FleeFromPlayer();
+        }
+        
     }
+    
 
     private void UpdateDestination()
     {
@@ -40,5 +50,13 @@ public class BugAI : MonoBehaviour
         {
             wayPointIndex = 0;
         }
+    }
+
+    private void FleeFromPlayer()
+    {
+        fleepoint = Random.Range(0, fleePoints.Length);
+        fleeTarget = fleePoints[fleepoint].position;
+        bugAI.SetDestination(fleeTarget);
+        
     }
 }
