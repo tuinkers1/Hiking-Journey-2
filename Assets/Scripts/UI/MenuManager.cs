@@ -41,7 +41,7 @@ public class MenuManager : MonoBehaviour
         fpsController.enabled = isActive;
     }
 
-    public bool IsMenuActive() // Add this method
+    public bool IsMenuActive() 
     {
         return menuCanvas.activeSelf;
     }

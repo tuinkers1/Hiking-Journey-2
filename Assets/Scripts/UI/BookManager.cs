@@ -8,7 +8,7 @@ public class BookManager : MonoBehaviour
     private FPSController fpsController;
     public GameObject animationRoot;
     private SwingTrigger swingTrigger;
-    public MenuManager menuManager; // Add this line
+    public MenuManager menuManager; 
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class BookManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !menuManager.IsMenuActive()) // Update this line
+        if (Input.GetKeyDown(KeyCode.E) && !menuManager.IsMenuActive()) 
         {
             ToggleBook();
         }
