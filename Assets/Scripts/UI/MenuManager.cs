@@ -7,6 +7,7 @@ public class MenuManager : MonoBehaviour
     public GameObject menuCanvas;
     public GameObject player; // Assign the player GameObject in the inspector
     private FPSController fpsController;
+    private bool isOnStart = true;
 
     void Start()
     {
@@ -25,7 +26,7 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && isOnStart == true)
         {
             ToggleMenu();
         }
@@ -33,6 +34,7 @@ public class MenuManager : MonoBehaviour
 
     void ToggleMenu()
     {
+        isOnStart = false;
         bool isActive = menuCanvas.activeSelf;
         menuCanvas.SetActive(!isActive);
         Cursor.visible = !isActive;
