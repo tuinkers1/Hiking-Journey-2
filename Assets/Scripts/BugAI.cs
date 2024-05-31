@@ -28,7 +28,7 @@ public class BugAI : MonoBehaviour
             IterateWayPointIndex();
             UpdateDestination();        
         }
-        if (Input.GetKeyDown(KeyCode.P))
+        //if (Input.GetKeyDown(KeyCode.P))
         {
             FleeFromPlayer();
         }
