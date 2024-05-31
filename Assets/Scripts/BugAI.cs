@@ -30,7 +30,7 @@ public class BugAI : MonoBehaviour
         }
         //if (Input.GetKeyDown(KeyCode.P))
         {
-            FleeFromPlayer();
+           // FleeFromPlayer();
         }
         
     }
@@ -52,11 +52,11 @@ public class BugAI : MonoBehaviour
         }
     }
 
-    private void FleeFromPlayer()
+  /* private void FleeFromPlayer()
     {
         fleepoint = Random.Range(0, fleePoints.Length);
         fleeTarget = fleePoints[fleepoint].position;
         bugAI.SetDestination(fleeTarget);
         
-    }
+    }*/
 }
