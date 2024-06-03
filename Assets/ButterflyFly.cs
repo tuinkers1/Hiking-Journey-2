@@ -32,14 +32,15 @@ public class ButterflyFly : MonoBehaviour
 
         Vector3 randomDirection = Random.onUnitSphere;
 
+        /*
         Quaternion randomQ = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(randomDirection), rotateSpeed * Time.deltaTime);
         Quaternion toMidQ = Quaternion.LookRotation(toMid);
 
-        transform.rotation = Quaternion.Lerp(randomQ, toMidQ, /* how much random, vs how much to mid, look at documentation of lerp*/)
+        
+        transform.rotation = Quaternion.Lerp(randomQ, toMidQ, /* how much random, vs how much to mid, look at documentation of lerp)
+        */
 
 
-        /*
-        OLD
         if (distanceToMid < maxDistance)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(randomDirection), rotateSpeed *Time.deltaTime);
@@ -47,10 +48,10 @@ public class ButterflyFly : MonoBehaviour
         }   
 
         transform.rotation = Quaternion.LookRotation(toMid);
-
+        /*
         Quaternion.Lerp(randomDirection, toMidDirection, closenessToMax);
 
-
+        
         before changing maxdistance, want to lerp and slightly already move towards that direction
         */
     }
