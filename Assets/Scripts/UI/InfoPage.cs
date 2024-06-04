@@ -1,26 +1,37 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InfoPage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class InfoPage : MonoBehaviour, IPointerClickHandler
 {
-    public string bugName; 
-    public BugCollector bugCollector; 
-    public GameObject infoPage; 
-    public GameObject infoPageSilhouette; 
-    public GameObject infoPageColored; 
+    public string bugName;
+    public BugCollector bugCollector;
+    public GameObject infoPage;
+    public GameObject infoPageSilhouette;
+    public GameObject infoPageColored;
+    private static InfoPage currentActiveInfoPage; 
 
     private void Start()
     {
-        
         infoPage.SetActive(false);
         infoPageSilhouette.SetActive(false);
         infoPageColored.SetActive(false);
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (currentActiveInfoPage != null && currentActiveInfoPage != this)
+        {
+            currentActiveInfoPage.HideInfoPage();
+        }
+
+        currentActiveInfoPage = this;
+
+        ShowInfoPage();
+    }
+
+    private void ShowInfoPage()
     {
         infoPage.SetActive(true);
-        
 
         if (bugCollector != null && bugCollector.IsBugCaught(bugName))
         {
@@ -34,7 +45,7 @@ public class InfoPage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    private void HideInfoPage()
     {
         infoPage.SetActive(false);
         infoPageSilhouette.SetActive(false);
