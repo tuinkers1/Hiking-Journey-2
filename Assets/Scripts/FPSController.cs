@@ -7,7 +7,7 @@ using UnityEngine;
 public class FPSController : MonoBehaviour
 {
     public Camera playerCamera;
-    public float walkSpeed = 6f;
+    public float walkSpeed = 12f;
     public float runSpeed = 12f;
     public float jumpPower = 5f;
     public float gravity = 50f;
@@ -37,7 +37,7 @@ public class FPSController : MonoBehaviour
         Vector3 right = transform.TransformDirection(Vector3.right);
 
         //Shift to run
-        bool isRunning = Input.GetKey(KeyCode.LeftShift);
+        bool isRunning = false;
         float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
@@ -48,11 +48,11 @@ public class FPSController : MonoBehaviour
         #region Handles Jumping
         if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {
-            moveDirection.y = jumpPower;
+            //moveDirection.y = jumpPower;
         }
         else 
         {
-            moveDirection.y = movementDirectionY;
+            //moveDirection.y = movementDirectionY;
         }
 
         if (!characterController.isGrounded)

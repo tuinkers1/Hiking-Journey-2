@@ -21,7 +21,7 @@ public class BugAI : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(bugAI.remainingDistance);
+        //Debug.Log(bugAI.remainingDistance);
         //Debug.Log(Vector3.Distance(transform.position, Target));
         if (bugAI.remainingDistance < 1 && !bugAI.pathPending)
         {
