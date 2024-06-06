@@ -62,7 +62,7 @@ public class MenuManager : MonoBehaviour
     public void CountUpBug()
     {
         bugCount++;
-        bugCountText.text = "Bugs: " + bugCount;
+        bugCountText.text = "- Insecten Gevangen: " + bugCount + "/10";
         if (bugCount >= 10)
         {
             // Trigger win condition
