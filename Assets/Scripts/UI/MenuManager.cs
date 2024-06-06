@@ -1,13 +1,29 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager Instance { get; private set; }
     public GameObject menuCanvas;
     public GameObject player; // Assign the player GameObject in the inspector
     private FPSController fpsController;
     private bool isOnStart = true;
+    [SerializeField] private int bugCount = 0;
+    [SerializeField] private TextMeshProUGUI bugCountText;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -42,4 +58,16 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = isActive ? 1f : 0f;
         fpsController.enabled = isActive;
     }
+
+    public void CountUpBug()
+    {
+        bugCount++;
+        bugCountText.text = " Insecten gevangen: " + bugCount + "/10";
+        if (bugCount >= 10)
+        {
+            // Trigger win condition
+            Debug.Log("You caught 10 bugs! You win!");
+        }
+    }
+
 }
