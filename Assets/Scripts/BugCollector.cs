@@ -57,6 +57,10 @@ public class BugCollector : MonoBehaviour
 
     public void OnCatch(string bugName)
     {
+
+        MenuManager.Instance.CountUpBug();
+        
+        
         if (bugsCaught.ContainsKey(bugName))
         {
             if (bugsCaught[bugName])
