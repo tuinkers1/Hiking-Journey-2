@@ -47,12 +47,16 @@ public class BugCollector : MonoBehaviour
         duplicateBugMessage.SetActive(false);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            CatchAllBugs();
+        }
+    }
+
     public void OnCatch(string bugName)
     {
-
-        MenuManager.Instance.CountUpBug();
-        
-        
         if (bugsCaught.ContainsKey(bugName))
         {
             if (bugsCaught[bugName])
@@ -99,6 +103,25 @@ public class BugCollector : MonoBehaviour
         {
             Debug.LogWarning("Bug not found in the dictionary.");
             return false;
+        }
+    }
+
+    private void CatchAllBugs()
+    {
+        foreach (var bug in bugs)
+        {
+            string bugName = bug.bugName;
+            bugsCaught[bugName] = true;
+
+            if (bugImages.ContainsKey(bugName))
+            {
+                bugImages[bugName].enabled = true;
+            }
+
+            if (bugCaughtMessages.ContainsKey(bugName))
+            {
+                StartCoroutine(ShowMessage(bugCaughtMessages[bugName]));
+            }
         }
     }
 }

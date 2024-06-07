@@ -11,7 +11,7 @@ public class movefaster : MonoBehaviour
             FPSController playerController = other.GetComponent<FPSController>();
             if (playerController != null)
             {
-                playerController.walkSpeed = 24;
+                playerController.walkSpeed = 7;
             }
         }
     }
@@ -23,7 +23,7 @@ public class movefaster : MonoBehaviour
             FPSController playerController = other.GetComponent<FPSController>();
             if (playerController != null)
             {
-                playerController.walkSpeed = 12;
+                playerController.walkSpeed = 7;
             }
         }
     }
