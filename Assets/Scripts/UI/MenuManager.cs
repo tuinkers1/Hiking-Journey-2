@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance { get; private set; }
     public GameObject menuCanvas;
-    public GameObject player; // Assign the player GameObject in the inspector
+    public GameObject player; 
     private FPSController fpsController;
     private bool isOnStart = true;
     [SerializeField] private int bugCount = 0;
@@ -62,7 +62,7 @@ public class MenuManager : MonoBehaviour
     public void CountUpBug()
     {
         bugCount++;
-        bugCountText.text = " Insecten gevangen: " + bugCount + "/10";
+        bugCountText.text = "Insecten gevangen: " + bugCount + "/10";
         if (bugCount >= 10)
         {
             // Trigger win condition
@@ -70,4 +70,9 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void SwitchScene(string sceneName)
+    {
+        Debug.Log("Switching to scene: " + sceneName);
+        SceneManager.LoadScene(sceneName);
+    }
 }
