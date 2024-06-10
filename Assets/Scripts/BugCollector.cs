@@ -7,7 +7,7 @@ public class BugCollector : MonoBehaviour
 {
     [SerializeField]
     private List<Bug> bugs = new List<Bug>();
-
+    
     private Dictionary<string, Image> bugImages = new Dictionary<string, Image>();
     private Dictionary<string, bool> bugsCaught = new Dictionary<string, bool>();
     private Dictionary<string, GameObject> bugCaughtMessages = new Dictionary<string, GameObject>();
@@ -57,6 +57,8 @@ public class BugCollector : MonoBehaviour
 
     public void OnCatch(string bugName)
     {
+        MenuManager menuManager = FindObjectOfType<MenuManager>();
+        menuManager.CountUpBug();
         if (bugsCaught.ContainsKey(bugName))
         {
             if (bugsCaught[bugName])
