@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.42221254, g: 0.64316183, b: 0.793691, a: 1}
+  m_IndirectSpecularColor: {r: 0.42226925, g: 0.6437075, b: 0.79366875, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -29803,6 +29803,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: father_hike_tt
       objectReference: {fileID: 0}
+    - target: {fileID: 6553207770162413789, guid: ff8e8275424b53d4e994b81412ada772, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c34abf182fe09f48bb603675660a220, type: 2}
+    - target: {fileID: 8100320773420232829, guid: ff8e8275424b53d4e994b81412ada772, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c34abf182fe09f48bb603675660a220, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff8e8275424b53d4e994b81412ada772, type: 3}
 --- !u!1 &1134995977
