@@ -126,4 +126,14 @@ public class BugCollector : MonoBehaviour
             }
         }
     }
+
+    public bool AreAllBugsCaught()
+    {
+        foreach (var caught in bugsCaught.Values)
+        {
+            if (!caught)
+                return false;
+        }
+        return true;
+    }
 }
