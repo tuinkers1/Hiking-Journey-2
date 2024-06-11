@@ -42,7 +42,7 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && isOnStart == true)
+        if (Input.GetKeyDown(KeyCode.Return)) //&& isOnStart == true)
         {
             ToggleMenu();
         }

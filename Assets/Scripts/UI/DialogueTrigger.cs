@@ -4,10 +4,11 @@ using TMPro;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public GameObject player; // Assign the player GameObject in the inspector
-    public TextMeshProUGUI dialogueText; // Assign the TextMeshProUGUI element in the inspector
-    public TextMeshProUGUI bugCountText; // Assign the bug count TextMeshProUGUI element in the inspector
-    public GameObject endGameScreen; // Assign the end game screen UI in the inspector
+    public GameObject player; 
+    public TextMeshProUGUI dialogueText; 
+    public TextMeshProUGUI bugCountText; 
+    public GameObject endGameScreen; 
+    
 
     private string[] dialogueLines = {
         "Kid: Wow, Dad! This forest is amazing. Look at all the trees and flowers!",
@@ -44,13 +45,11 @@ public class DialogueTrigger : MonoBehaviour
             if (!isDialogueActive)
             {
                 if (dialogueCompleted)
-                {
-                    // If dialogue was already completed, show the last line
-                    DisplayEndDialogueLine();
+                {  
+                    DisplayLastLineIfNeeded();
                 }
                 else
                 {
-                    // If dialogue was not completed, start the dialogue
                     StartDialogue();
                 }
             }
@@ -81,28 +80,26 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    private void DisplayEndDialogueLine()
+    private void DisplayLastLineIfNeeded()
     {
-        dialogueText.gameObject.SetActive(true);
-        dialogueText.text = endDialogueLine;
-        isDialogueActive = true;
         if (bugCollector.AreAllBugsCaught())
         {
-            StartCoroutine(ShowEndGameScreenAfterDelay(3f)); // Adjust the delay as needed
+            dialogueText.gameObject.SetActive(true);
+            dialogueText.text = endDialogueLine;
+            isDialogueActive = true;
+            StartCoroutine(ShowEndGameScreenAfterDelay(3f)); 
         }
     }
+
 
     private void EndDialogue()
     {
         dialogueText.gameObject.SetActive(false);
         isDialogueActive = false;
         currentLine = 0;
-        dialogueCompleted = true; // Mark dialogue as completed
+        dialogueCompleted = true; 
         ShowBugCountText();
-        if (bugCollector.AreAllBugsCaught())
-        {
-            DisplayEndDialogueLine();
-        }
+        DisplayLastLineIfNeeded(); 
     }
 
     private void ShowBugCountText()
@@ -115,7 +112,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private IEnumerator ShowEndGameScreenAfterDelay(float delay)
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(delay);
         if (endGameScreen != null)
         {
             endGameScreen.SetActive(true);
